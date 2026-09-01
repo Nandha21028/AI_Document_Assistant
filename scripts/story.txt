@@ -1,0 +1,174 @@
+The Midnight Archive
+
+On 17 August 2026, at exactly 10:40 PM, the lights inside the old Meridian Research Archive suddenly went out.
+
+The archive was a small two-floor building located behind the main research laboratory. Only four people were officially authorized to enter the building after 8:00 PM: Dr. Arjun Mehta, Priya Nair, Daniel Joseph, and the security officer, Ravi.
+
+At 10:42 PM, Ravi noticed that the archive's main door was still locked from the inside. He used his security key to open it.
+
+Inside, everything appeared normal except for one thing: the blue metal cabinet in Room 204 was open.
+
+The cabinet was supposed to contain three prototype storage drives:
+
+Drive A — marked ORION-17
+Drive B — marked VEGA-09
+Drive C — marked LUNA-31
+
+Only Drive B was missing.
+
+Ravi immediately checked the security camera system.
+
+The cameras showed something unusual.
+
+At 9:56 PM, Priya entered the archive carrying a black notebook.
+
+At 10:03 PM, Daniel entered carrying nothing.
+
+At 10:11 PM, Dr. Arjun entered Room 204.
+
+At 10:18 PM, Daniel left the building.
+
+At 10:21 PM, Priya left the building.
+
+At 10:27 PM, Dr. Arjun left the building.
+
+However, the archive's electronic access log showed that someone opened the blue cabinet at 10:31 PM.
+
+This was impossible because the camera showed nobody entering Room 204 after Dr. Arjun left at 10:27 PM.
+
+Ravi initially suspected a malfunction in the access-control system.
+
+He contacted Priya.
+
+Priya said she had entered the archive because Dr. Arjun had asked her to retrieve a document from Room 201. She insisted that she never entered Room 204.
+
+Daniel gave a different explanation.
+
+He said he had entered the archive to return a laboratory tablet that he had accidentally taken home the previous evening. According to Daniel, he left at 10:18 PM because he had finished returning the tablet.
+
+Dr. Arjun said he had entered Room 204 to inspect Drive A.
+
+When asked whether he had touched Drive B, he replied:
+
+"I saw all three drives inside the cabinet. I only checked the label on Drive A."
+
+At 11:05 PM, Ravi discovered another clue.
+
+A small piece of blue plastic was found underneath the table in Room 204.
+
+The plastic was the same color as the protective casing used on Drive B.
+
+However, the plastic did not prove that Drive B had been removed that night. The casing had already been damaged two weeks earlier during a failed experiment.
+
+The investigators then checked the archive's environmental monitoring system.
+
+At 10:29 PM, the temperature inside Room 204 increased from 21.2°C to 24.8°C for exactly three minutes.
+
+The heating system was not scheduled to activate.
+
+This was strange because Drive B was known to generate a small amount of heat when operating.
+
+At 11:32 PM, Ravi checked the network logs.
+
+Drive B had connected to the archive's internal network at 10:30 PM.
+
+Its connection lasted exactly 47 seconds.
+
+The network address assigned to Drive B was 192.168.4.31.
+
+The archive's network administrator later confirmed that this address had previously been assigned to a testing laptop.
+
+That laptop was officially registered to Daniel.
+
+Daniel denied using the laptop that night.
+
+He claimed that the laptop had been left inside Laboratory 3.
+
+Laboratory 3 was approximately 80 meters from the archive.
+
+At midnight, Ravi checked Laboratory 3.
+
+The laptop was there.
+
+Its battery was completely drained.
+
+The laptop's last recorded activity was at 10:29 PM.
+
+One file had been opened on the laptop:
+
+vega_transfer.log
+
+The log contained only three lines:
+
+21:58 - device detected
+
+22:30 - transfer initiated
+
+22:31 - transfer completed
+
+The log did not identify who initiated the transfer.
+
+The next morning, investigators discovered that Drive B had not actually been taken out of the building.
+
+Instead, a hidden compartment beneath the archive's old staircase contained a small wireless storage receiver.
+
+The receiver contained a copy of the data from Drive B.
+
+This created a new mystery.
+
+Someone had copied the contents of Drive B without physically stealing the drive.
+
+The investigators concluded that the person responsible most likely knew:
+
+where Drive B was stored,
+how the archive's network was configured,
+which laptop could communicate with the drive,
+and when the security cameras would not immediately reveal the transfer.
+
+But there was still one problem.
+
+The archive's camera system showed nobody near the staircase between 10:20 PM and 10:40 PM.
+
+At 8:00 AM the following morning, Priya returned to the archive.
+
+She immediately noticed something unusual.
+
+Her black notebook was missing.
+
+She had left it on her desk in Room 201 the previous evening.
+
+Inside that notebook was a handwritten network diagram of the archive.
+
+The diagram included the exact address:
+
+192.168.4.31
+
+Priya later admitted that she had drawn the diagram herself.
+
+However, she insisted that she had never shared it with Daniel.
+
+Daniel claimed he had never seen the notebook.
+
+Dr. Arjun said he had seen Priya's notebook several times but did not remember seeing the network diagram.
+
+Ravi then reviewed the security footage again.
+
+At 10:07 PM, while Priya was supposedly retrieving a document from Room 201, she briefly walked past the door of Room 204.
+
+She did not enter the room.
+
+But she stopped for approximately seven seconds.
+
+The investigation remained unresolved.
+
+There was enough evidence to suspect Daniel.
+
+There was enough evidence to suspect Priya.
+
+There was also evidence suggesting that Dr. Arjun knew more than he admitted.
+
+But none of the evidence conclusively proved who copied Drive B.
+
+The final report therefore classified the incident as:
+
+Unauthorized Data Transfer — Suspect Unknown
