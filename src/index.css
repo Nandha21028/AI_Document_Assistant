@@ -1,0 +1,718 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═════════════════════════════════════════════════════════════════════════
+   1. THEME DESIGN TOKENS (RGB CHANNELS FOR TAILWIND <alpha-value>)
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Cyber Sapphire (Glassmorphism) */
+:root,
+[data-theme="cyber"] {
+  --color-bg: 9 14 23;
+  --color-sidebar: 13 20 32;
+  --color-card: 17 26 42;
+  --color-card-subtle: 14 22 36;
+  --color-well: 7 11 18;
+  --color-hover: 26 38 60;
+  --color-border: 35 52 82;
+  --color-border-subtle: 22 34 54;
+
+  --color-text: 248 250 252;
+  --color-muted: 148 163 184;
+
+  --color-accent: 0 242 254;
+  --color-accent-hover: 2 132 199;
+  --color-accent-text: 2 6 23;
+  --color-telemetry: 56 189 248;
+
+  --theme-style: glassmorphism;
+}
+
+/* 2. Titanium Console (Skeuomorphism) */
+[data-theme="default"] {
+  --color-bg: 28 31 36;
+  --color-sidebar: 21 23 26;
+  --color-card: 36 40 47;
+  --color-card-subtle: 30 33 38;
+  --color-well: 19 21 24;
+  --color-hover: 46 51 60;
+  --color-border: 56 63 74;
+  --color-border-subtle: 43 49 58;
+
+  --color-text: 241 245 249;
+  --color-muted: 148 163 184;
+
+  --color-accent: 16 185 129;
+  --color-accent-hover: 5 150 105;
+  --color-accent-text: 255 255 255;
+  --color-telemetry: 6 182 212;
+
+  --theme-style: skeuomorphism;
+}
+
+/* 3. OLED Midnight (Pixel-Art & 8-Bit Retro) */
+[data-theme="dark"] {
+  --color-bg: 8 9 10;
+  --color-sidebar: 5 6 7;
+  --color-card: 18 20 24;
+  --color-card-subtle: 13 15 18;
+  --color-well: 4 4 5;
+  --color-hover: 30 34 42;
+  --color-border: 45 52 64;
+  --color-border-subtle: 28 32 40;
+
+  --color-text: 255 255 255;
+  --color-muted: 156 163 175;
+
+  --color-accent: 0 255 136;
+  --color-accent-hover: 0 204 106;
+  --color-accent-text: 0 0 0;
+  --color-telemetry: 255 204 0;
+
+  --theme-style: pixel-art;
+}
+
+/* 4. Amber Eye-Shield (Claymorphism) */
+[data-theme="protective"] {
+  --color-bg: 31 26 22;
+  --color-sidebar: 24 20 17;
+  --color-card: 44 37 31;
+  --color-card-subtle: 36 30 25;
+  --color-well: 20 16 13;
+  --color-hover: 58 49 41;
+  --color-border: 82 70 58;
+  --color-border-subtle: 60 51 42;
+
+  --color-text: 253 246 236;
+  --color-muted: 202 185 163;
+
+  --color-accent: 245 158 11;
+  --color-accent-hover: 217 119 6;
+  --color-accent-text: 26 19 9;
+  --color-telemetry: 251 191 36;
+
+  --theme-style: claymorphism;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   2. GLOBAL BASE & RESPONSIVE SCROLLBAR
+   ═════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  html,
+  body,
+  #root {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    min-height: 100%;
+    height: 100%;
+    height: 100dvh;
+  }
+
+  * {
+    border-color: rgb(var(--color-border));
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    touch-action: manipulation;
+  }
+
+  /* Custom Tactile Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--color-well));
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--color-border));
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--color-hover));
+  }
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   3. MULTI-STYLE PARADIGM ENGINES
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────
+   STYLE A: GLASSMORPHISM (Active on Cyber Sapphire)
+   ───────────────────────────────────────────────────────────────────────── */
+[data-style="glassmorphism"] {
+  --surface-radius-card: 1rem;
+  --surface-radius-btn: 0.75rem;
+  --surface-radius-pill: 9999px;
+}
+
+[data-style="glassmorphism"] body {
+  background-image: radial-gradient(circle at 10% 10%, rgba(0, 242, 254, 0.08) 0%, transparent 45%),
+                    radial-gradient(circle at 90% 90%, rgba(56, 189, 248, 0.06) 0%, transparent 45%);
+}
+
+[data-style="glassmorphism"] .skeuo-card,
+[data-style="glassmorphism"] .theme-card {
+  background: rgba(17, 26, 42, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-top: 1px solid rgba(0, 242, 254, 0.35);
+  border-left: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: var(--surface-radius-card);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-style="glassmorphism"] .skeuo-card:hover,
+[data-style="glassmorphism"] .theme-card:hover {
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 12px 36px rgba(0, 242, 254, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+[data-style="glassmorphism"] .skeuo-well,
+[data-style="glassmorphism"] .theme-well {
+  background: rgba(7, 11, 18, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 0.75rem;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+[data-style="glassmorphism"] .skeuo-btn,
+[data-style="glassmorphism"] .theme-btn {
+  background: rgba(26, 38, 60, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: var(--surface-radius-btn);
+  color: rgb(var(--color-text));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+[data-style="glassmorphism"] .skeuo-btn:hover,
+[data-style="glassmorphism"] .theme-btn:hover {
+  background: rgba(38, 56, 88, 0.75);
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 6px 18px rgba(0, 242, 254, 0.25);
+  transform: translateY(-1px);
+}
+
+[data-style="glassmorphism"] .skeuo-btn:active,
+[data-style="glassmorphism"] .theme-btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+[data-style="glassmorphism"] .skeuo-btn-primary,
+[data-style="glassmorphism"] .theme-btn-primary {
+  background: linear-gradient(135deg, #00f2fe 0%, #0284c7 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--surface-radius-btn);
+  color: #020617;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-style="glassmorphism"] .skeuo-btn-primary:hover,
+[data-style="glassmorphism"] .theme-btn-primary:hover {
+  box-shadow: 0 0 28px rgba(0, 242, 254, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+[data-style="glassmorphism"] .skeuo-pill,
+[data-style="glassmorphism"] .theme-pill {
+  background: rgba(14, 22, 36, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: var(--surface-radius-pill);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-style="glassmorphism"] .skeuo-header,
+[data-style="glassmorphism"] .theme-header {
+  background: rgba(9, 14, 23, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-style="glassmorphism"] .skeuo-led-green {
+  background-color: #00f2fe;
+  box-shadow: 0 0 10px #00f2fe, inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+[data-style="glassmorphism"] .skeuo-led-cyan {
+  background-color: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8, inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+[data-style="glassmorphism"] .skeuo-led-amber {
+  background-color: #f59e0b;
+  box-shadow: 0 0 10px #f59e0b, inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+[data-style="glassmorphism"] .skeuo-led-purple {
+  background-color: #a855f7;
+  box-shadow: 0 0 10px #a855f7, inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   STYLE B: SKEUOMORPHISM (Active on Titanium Console)
+   ───────────────────────────────────────────────────────────────────────── */
+[data-style="skeuomorphism"] {
+  --surface-radius-card: 0.75rem;
+  --surface-radius-btn: 0.5rem;
+  --surface-radius-pill: 9999px;
+  --skeuo-metal-bg: linear-gradient(180deg, #2f353e 0%, #23272f 50%, #1a1d22 100%);
+  --skeuo-metal-hover: linear-gradient(180deg, #373e49 0%, #292e37 50%, #1f2329 100%);
+  --skeuo-metal-active: linear-gradient(180deg, #181a1f 0%, #1f232a 60%, #272c34 100%);
+  --skeuo-primary-bg: linear-gradient(180deg, #10b981 0%, #059669 60%, #047857 100%);
+  --skeuo-primary-hover: linear-gradient(180deg, #34d399 0%, #10b981 60%, #059669 100%);
+}
+
+[data-style="skeuomorphism"] .skeuo-card,
+[data-style="skeuomorphism"] .theme-card {
+  background: linear-gradient(180deg, #282c35 0%, #20242b 100%);
+  border: 1px solid rgb(var(--color-border));
+  border-radius: var(--surface-radius-card);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18), inset 0 -1px 2px rgba(0, 0, 0, 0.7), 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.15s ease;
+}
+
+[data-style="skeuomorphism"] .skeuo-well,
+[data-style="skeuomorphism"] .theme-well {
+  background-color: rgb(var(--color-well));
+  border: 1px solid rgb(var(--color-border-subtle));
+  border-radius: 0.625rem;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+[data-style="skeuomorphism"] .skeuo-btn,
+[data-style="skeuomorphism"] .theme-btn {
+  background: var(--skeuo-metal-bg);
+  border: 1px solid rgb(var(--color-border));
+  border-radius: var(--surface-radius-btn);
+  color: rgb(var(--color-text));
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18), inset 0 -1px 2px rgba(0, 0, 0, 0.6), 0 3px 8px rgba(0, 0, 0, 0.35);
+  transition: all 0.12s ease;
+  cursor: pointer;
+}
+
+[data-style="skeuomorphism"] .skeuo-btn:hover,
+[data-style="skeuomorphism"] .theme-btn:hover {
+  background: var(--skeuo-metal-hover);
+  border-color: rgb(var(--color-accent));
+}
+
+[data-style="skeuomorphism"] .skeuo-btn:active,
+[data-style="skeuomorphism"] .theme-btn:active {
+  background: var(--skeuo-metal-active);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  transform: translateY(1px);
+}
+
+[data-style="skeuomorphism"] .skeuo-btn-primary,
+[data-style="skeuomorphism"] .theme-btn-primary {
+  background: var(--skeuo-primary-bg);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--surface-radius-btn);
+  color: rgb(var(--color-accent-text));
+  font-weight: 700;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 12px rgba(16, 185, 129, 0.35);
+}
+
+[data-style="skeuomorphism"] .skeuo-btn-primary:hover,
+[data-style="skeuomorphism"] .theme-btn-primary:hover {
+  background: var(--skeuo-primary-hover);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 18px rgba(16, 185, 129, 0.55);
+}
+
+[data-style="skeuomorphism"] .skeuo-pill,
+[data-style="skeuomorphism"] .theme-pill {
+  background-color: rgb(var(--color-card-subtle));
+  border: 1px solid rgb(var(--color-border));
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: var(--surface-radius-pill);
+}
+
+[data-style="skeuomorphism"] .skeuo-header,
+[data-style="skeuomorphism"] .theme-header {
+  background-color: rgb(var(--color-bg));
+  border-bottom: 1px solid rgb(var(--color-border));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+[data-style="skeuomorphism"] .skeuo-led-green {
+  background-color: #00ff66;
+  box-shadow: 0 0 8px #00ff66, inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+[data-style="skeuomorphism"] .skeuo-led-cyan {
+  background-color: #00e5ff;
+  box-shadow: 0 0 8px #00e5ff, inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+[data-style="skeuomorphism"] .skeuo-led-amber {
+  background-color: #ffaa00;
+  box-shadow: 0 0 8px #ffaa00, inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+[data-style="skeuomorphism"] .skeuo-led-purple {
+  background-color: #c084fc;
+  box-shadow: 0 0 8px #c084fc, inset 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   STYLE C: PIXEL-ART & 8-BIT RETRO (Active on OLED Midnight)
+   ───────────────────────────────────────────────────────────────────────── */
+[data-style="pixel-art"] {
+  --surface-radius-card: 0px;
+  --surface-radius-btn: 0px;
+  --surface-radius-pill: 0px;
+}
+
+[data-style="pixel-art"] .skeuo-card,
+[data-style="pixel-art"] .theme-card {
+  background: #121418;
+  border: 2px solid #000000;
+  outline: 1px solid rgba(0, 255, 136, 0.35);
+  border-radius: 0px;
+  box-shadow: 3px 3px 0px #000000;
+  image-rendering: pixelated;
+  transition: all 0.1s steps(2);
+}
+
+[data-style="pixel-art"] .skeuo-card:hover,
+[data-style="pixel-art"] .theme-card:hover {
+  border-color: #00ff88;
+  box-shadow: 4px 4px 0px rgba(0, 255, 136, 0.6);
+  transform: translate(-1px, -1px);
+}
+
+[data-style="pixel-art"] .skeuo-well,
+[data-style="pixel-art"] .theme-well {
+  background: #040405;
+  border: 2px solid #283240;
+  border-radius: 0px;
+  box-shadow: inset 2px 2px 0px #000000;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+[data-style="pixel-art"] .skeuo-btn,
+[data-style="pixel-art"] .theme-btn {
+  background: #1b1f26;
+  border: 2px solid #000000;
+  outline: 1px solid #3a4454;
+  border-radius: 0px;
+  color: #ffffff;
+  box-shadow: 2px 2px 0px #000000;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.08s steps(2);
+}
+
+[data-style="pixel-art"] .skeuo-btn:hover,
+[data-style="pixel-art"] .theme-btn:hover {
+  background: #252b36;
+  border-color: #00ff88;
+  outline-color: #00ff88;
+}
+
+[data-style="pixel-art"] .skeuo-btn:active,
+[data-style="pixel-art"] .theme-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000000;
+}
+
+[data-style="pixel-art"] .skeuo-btn-primary,
+[data-style="pixel-art"] .theme-btn-primary {
+  background: #00ff88;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 3px 3px 0px #000000;
+  transition: all 0.08s steps(2);
+}
+
+[data-style="pixel-art"] .skeuo-btn-primary:hover,
+[data-style="pixel-art"] .theme-btn-primary:hover {
+  background: #33ffa3;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+[data-style="pixel-art"] .skeuo-btn-primary:active,
+[data-style="pixel-art"] .theme-btn-primary:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0px #000000;
+}
+
+[data-style="pixel-art"] .skeuo-pill,
+[data-style="pixel-art"] .theme-pill {
+  background: #121418;
+  border: 1px solid #3a4454;
+  border-radius: 0px;
+  box-shadow: 1px 1px 0px #000000;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+[data-style="pixel-art"] .skeuo-header,
+[data-style="pixel-art"] .theme-header {
+  background: #08090a;
+  border-bottom: 2px solid #000000;
+  box-shadow: 0 3px 0px rgba(0, 255, 136, 0.2);
+}
+
+[data-style="pixel-art"] .skeuo-led {
+  border-radius: 0px;
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0px #000000;
+}
+[data-style="pixel-art"] .skeuo-led-green {
+  background-color: #00ff88;
+}
+[data-style="pixel-art"] .skeuo-led-cyan {
+  background-color: #ffcc00;
+}
+[data-style="pixel-art"] .skeuo-led-amber {
+  background-color: #ff5533;
+}
+[data-style="pixel-art"] .skeuo-led-purple {
+  background-color: #c084fc;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   STYLE D: CLAYMORPHISM (Active on Amber Eye-Shield)
+   ───────────────────────────────────────────────────────────────────────── */
+[data-style="claymorphism"] {
+  --surface-radius-card: 1.5rem;
+  --surface-radius-btn: 1rem;
+  --surface-radius-pill: 9999px;
+}
+
+[data-style="claymorphism"] .skeuo-card,
+[data-style="claymorphism"] .theme-card {
+  background: #2c251f;
+  border: 1.5px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--surface-radius-card);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35), inset 0 3px 6px rgba(255, 255, 255, 0.12), inset 0 -4px 8px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-style="claymorphism"] .skeuo-card:hover,
+[data-style="claymorphism"] .theme-card:hover {
+  transform: translateY(-2px) scale(1.005);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4), inset 0 4px 8px rgba(255, 255, 255, 0.16), inset 0 -4px 8px rgba(0, 0, 0, 0.4);
+}
+
+[data-style="claymorphism"] .skeuo-well,
+[data-style="claymorphism"] .theme-well {
+  background: #171310;
+  border: 1.5px solid rgba(245, 158, 11, 0.18);
+  border-radius: 1.125rem;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5), inset 0 -2px 4px rgba(255, 255, 255, 0.05);
+}
+
+[data-style="claymorphism"] .skeuo-btn,
+[data-style="claymorphism"] .theme-btn {
+  background: #382f28;
+  border: 1.5px solid rgba(245, 158, 11, 0.28);
+  border-radius: var(--surface-radius-btn);
+  color: rgb(var(--color-text));
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.14), inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+[data-style="claymorphism"] .skeuo-btn:hover,
+[data-style="claymorphism"] .theme-btn:hover {
+  background: #463b32;
+  border-color: rgb(var(--color-accent));
+  transform: translateY(-2px) scale(1.02);
+}
+
+[data-style="claymorphism"] .skeuo-btn:active,
+[data-style="claymorphism"] .theme-btn:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+[data-style="claymorphism"] .skeuo-btn-primary,
+[data-style="claymorphism"] .theme-btn-primary {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #1a1309;
+  border-radius: var(--surface-radius-btn);
+  border: none;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35), inset 0 3px 5px rgba(255, 255, 255, 0.45), inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-style="claymorphism"] .skeuo-btn-primary:hover,
+[data-style="claymorphism"] .theme-btn-primary:hover {
+  box-shadow: 0 10px 26px rgba(245, 158, 11, 0.5), inset 0 3px 5px rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px) scale(1.03);
+}
+
+[data-style="claymorphism"] .skeuo-btn-primary:active,
+[data-style="claymorphism"] .theme-btn-primary:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+[data-style="claymorphism"] .skeuo-pill,
+[data-style="claymorphism"] .theme-pill {
+  background: #362e26;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--surface-radius-pill);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+[data-style="claymorphism"] .skeuo-header,
+[data-style="claymorphism"] .theme-header {
+  background: #1f1a16;
+  border-bottom: 1.5px solid rgba(245, 158, 11, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+[data-style="claymorphism"] .skeuo-led-green {
+  background-color: #84cc16;
+  box-shadow: 0 0 10px #84cc16, inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+[data-style="claymorphism"] .skeuo-led-cyan {
+  background-color: #f59e0b;
+  box-shadow: 0 0 10px #f59e0b, inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+[data-style="claymorphism"] .skeuo-led-amber {
+  background-color: #ea580c;
+  box-shadow: 0 0 10px #ea580c, inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+[data-style="claymorphism"] .skeuo-led-purple {
+  background-color: #f472b6;
+  box-shadow: 0 0 10px #f472b6, inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   4. SHARED PHYSICAL HARDWARE COMPONENTS & LEDS
+   ═════════════════════════════════════════════════════════════════════════ */
+
+/* Base Diode */
+.skeuo-led,
+.theme-led {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.skeuo-led::before,
+.theme-led::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   5. MICRO-ANIMATIONS & FLUID MOTION
+   ═════════════════════════════════════════════════════════════════════════ */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+  50% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 10px currentColor);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes messageSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.animate-message-entrance {
+  animation: messageSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-pop {
+  animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.shimmer-bar {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+   6. MOBILE VIEWPORT PERFORMANCE OPTIMIZATIONS
+   ═════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  [data-style="glassmorphism"] .skeuo-card,
+  [data-style="glassmorphism"] .theme-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  [data-style="glassmorphism"] .skeuo-well,
+  [data-style="glassmorphism"] .theme-well {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
