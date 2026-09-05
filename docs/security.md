@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/security_banner.png" alt="Security & Zero-Egress Architecture Banner" width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
+<img src="docs/assets/security_banner.png" alt="Security & Zero-Egress Architecture Banner" width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
 
 <br/><br/>
 
