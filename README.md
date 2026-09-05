@@ -12,6 +12,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.1-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Build & Verify CI](https://github.com/Nandha21028/AI_Document_Assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/Nandha21028/AI_Document_Assistant/actions)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Air--Gapped-success?style=for-the-badge&logo=shield&logoColor=white)](#-privacy--security-guarantee)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
@@ -176,7 +177,7 @@ npm install
 # Run local development server
 npm run dev
 ```
-Navigate to `http://localhost:5173` in your browser.
+Navigate to `http://localhost:3000` in your browser.
 
 ### 4. Build for Production
 ```bash
@@ -230,7 +231,7 @@ AI_Document_Assistant/
 │   │   ├── HardwareModal.tsx         # GPU speed benchmark runner (tok/s test)
 │   │   ├── ModelManagerModal.tsx     # Download progress & cache inspection
 │   │   └── StorageModal.tsx          # IndexedDB quota gauge & JSON backups
-│   ├── db/                           # Dexie.js database schemas & tables
+│   ├── storage/                      # Dexie.js IndexedDB schema, repositories & quota
 │   ├── documents/                    # Document ingestion engine
 │   │   ├── chunking/                 # Recursive character text splitter (500c/80o)
 │   │   ├── metadata/                 # BPE token estimator

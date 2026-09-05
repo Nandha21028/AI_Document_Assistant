@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/security_banner.png" alt="Security & Zero-Egress Architecture Banner" width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
+<img src="docs/assets/security_banner.png" alt="Security & Zero-Egress Architecture Banner" width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);" />
 
 <br/><br/>
 
@@ -214,6 +214,6 @@ Security is paramount. If you discover a security vulnerability or bypass in our
 
 **Protected by design. Private by principle.**
 
-[Back to Repository](https://github.com/Nandha21028/AI_Document_Assistant) • [Read the Documentation](architecture.md)
+[Back to Repository](https://github.com/Nandha21028/AI_Document_Assistant) • [Read the Documentation](docs/architecture.md)
 
 </div>
